@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+.tot {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
+@media only screen and (max-width: 500px) {
+  .currentdate {
+    font-size: 13px;
+  }
+  .time {
+    font-size: 13px;
+  }
+  .sapt {
+    font-size: 13px;
+    width: 5%;
+  }
+  .weather-container p {
+    font-size: 10px;
+  }
+}
+.calendar {
+  width: 100%;
+  height: auto;
+  position: relative;
+  animation-name: calendarTrans;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier();
+  padding-bottom: 5px;
+  box-shadow: -0px 0px 1px rgb(0, 0, 0);
+}
+
+button {
+  color: white;
+  border: none;
+  background: none;
+  font-family: "Merienda", sans-serif;
+}
+button:hover {
+  color: black;
+  transition: 1s;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.switchclock,
+.weatherbtn {
+  padding: 5px 10px;
+  border-radius: 2%;
+  background-color: #49838a;
+  text-align: center;
+  box-shadow: 0px 0px 3px black;
+}
+.switchclock:hover,
+.weatherbtn:hover {
+  transition: 1s;
+  transform: scale(0.9);
+}
+.switchclock:active,
+.weatherbtn:active {
+  transition: 0.5s;
+  transform: scale(0.8);
+}
+.top {
+  width: 100%;
+  background-color: #69bcc6;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-family: "Merienda", sans-serif;
+  flex-shrink: 1;
+  flex-grow: 0;
+  padding: 10px 10px;
+}
+.time {
+  box-sizing: border-box;
+  animation: calendarTrans 0.5s ease-out;
+}
+.mid {
+  display: flex;
+  font-family: "Merienda", sans-serif;
+  background-color: #69bcc6;
+  justify-content: space-between;
+  padding: 10px 10px;
+  color: white;
+}
+.zilesapt {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.zilenr {
+  padding: 0px 5px;
+  padding-bottom: 5px;
+}
+.sapt {
+  border-bottom: 1px solid #69bcc6;
+  width: 100%;
+  text-align: center;
+  background-color: #69bcc6;
+  color: #ffffff;
+  font-family: "Merienda", sans-serif;
+  font-weight: bolder;
+  user-select: none;
+}
+.sapt:hover {
+  color: red;
+  transition: 1s;
+  cursor: pointer;
+}
+.zilenr {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: 5px;
+}
+.alldays {
+  width: 100%;
+  text-align: center;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Merienda", sans-serif;
+  user-select: none;
+  border-left: 1px solid white;
+}
+
+.alldays:hover {
+  transition: 1s;
+  text-shadow: 1px 1px 9px #e3f1f1;
+  background-color: #69bcc6;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px white inset;
+  border-radius: 2%;
+}
+.classTrans1 {
+  animation: transitionNumbers1 0.5s ease-out;
+}
+.classTrans2 {
+  animation: transitionNumbers1 0.5s ease-out;
+}
+
+.circle {
+  width: 90%;
+  height: 90%;
+  border-radius: 100%;
+  background-color: #ffffff;
+  position: relative;
+  line-height: 0;
+  left: 4px;
+  top: 4px;
+  box-shadow: 1px 1px 7px black inset;
+  text-align: center;
+  line-height: 0.5;
+}
+
+.circle2 {
+  position: relative;
+  right: 5px;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: #000000;
+  z-index: 1;
+  animation: appearclock 0.4s ease-in-out;
+  display: none;
+}
+
+.container-numbers {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  transform: translate(-3%, 0%);
+}
+
+.numbers {
+  position: absolute;
+  color: #000000;
+  transform-origin: 49% 50%;
+  z-index: 0;
+  user-select: none;
+  overflow: hidden;
+  height: 100%;
+  font-size: 10px;
+  text-align: center;
+}
+
+.container-pointers {
+  position: relative;
+  height: 100%;
+  transform: translateY(-100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+.limbamica {
+  background-color: #000000;
+  position: absolute;
+  width: 4%;
+  height: 40%;
+  transform-origin: 50% 50%;
+  transform: translateY(-50%);
+}
+.limbamare {
+  background-color: #000000;
+  position: absolute;
+  width: 3%;
+  height: 45%;
+  transform-origin: 50% 50%;
+  transform: translateY(-50%);
+}
+
+.secundar {
+  background-color: #000000;
+  position: absolute;
+  width: 1%;
+  height: 48%;
+  transform-origin: 50% 50%;
+  transform: translateY(-50%);
+}
+.dot {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: #ca1111;
+  position: absolute;
+  transform: translateX(0%) translateY(0%);
+}
+
+.weather-container {
+  background-image: radial-gradient(#c4e5e9, #b0e0e6, #87ceeb);
+  width: 100%;
+  display: none;
+  animation: calendarTrans 0.4s ease-in-out;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  font-family: "Merienda", sans-serif;
+  color: white;
+  box-shadow: 0px 0px 1px rgb(0 0 0);
+}
+.weather-container p {
+  border-left: 1px solid white;
+  font-size: 10px;
+}
+
+.dissapearWeather {
+  animation: dissapearWeather 0.5s ease-in;
+}
+.dissapearclock {
+  animation: dissapearclock 0.5s ease-in;
+}
+@keyframes transitionNumbers1 {
+  from {
+    transform: scale(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes calendarTrans {
+  from {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes appearclock {
+  from {
+    transform: translateX(300px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes dissapearWeather {
+  from {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-9000px);
+  }
+}
+
+@keyframes dissapearclock {
+  from {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(9000px);
+  }
+}
